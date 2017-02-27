@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ChooseYourStyle.Models.Result>
+
+@section scripts {
+    <script src="~/Scripts/Angular/Module/StyleApp.js"></script>
+    <script src="~/Scripts/ngStorage.min.js"></script>
+}
+
+@{
+    ViewBag.Title = "Result Board";
+}
+
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+               <h3 class="result-header">RESULTS</h3>
+                <div class="wrap-table">
+                    <table class="table table-bordered">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th>NAME</th>
+                                <th>DATE</th>
+                                <th>STYLE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var result in Model.Reverse())
+                            {
+                                <tr>
+                                    <td>
+                                        @result.Login
+                                    </td>
+                                    <td>
+                                        @result.Date
+                                    </td>
+                                    <td>
+                                        @result.Style.Title
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

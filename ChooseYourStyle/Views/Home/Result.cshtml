@@ -1,0 +1,45 @@
+﻿@model ChooseYourStyle.Models.Summary
+
+@{
+    ViewBag.Title = "Your result";
+}
+
+@section scripts {
+    <script src="~/Scripts/Angular/Module/StyleApp.js"></script>
+    <script src="~/Scripts/ngStorage.min.js"></script>
+}
+
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+
+            <div class="summary">
+                <h2 class="header">Summary</h2>
+                <hr>
+                <div class="result">
+                    <h4>Name: @Model.Login</h4>
+                    <h4>Style: @Model.MainStyle</h4>
+                </div>
+                <hr>
+                <table class="summary-table">
+                    <tr class="summary-table-row">
+                        <th>Style</th>
+                        <th>Count</th>
+                    </tr>
+
+                    @foreach (KeyValuePair<string, int> kvp in Model.Styles)
+                    {
+                        <tr class="summary-table-row">
+                            <td>@kvp.Key</td>
+                            <td>@kvp.Value</td>
+                        </tr>
+                    }
+                </table>
+                <hr>
+            </div>
+            @Html.ActionLink("MAIN MENU", "Index", "Home", new { area = "" }, new { @class = "button", @style = "text-decoration: none; color: #fff" })
+        </div>
+
+    </div>
+
+</div>

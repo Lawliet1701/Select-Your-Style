@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Choose your style";
+}
+
+@section scripts {
+
+    <script src="~/Scripts/Angular/Module/StyleApp.js"></script>
+    <script src="~/Scripts/Angular/Controller/LoginCtrl.js"></script>
+    <script src="~/Scripts/ngStorage.min.js"></script>
+}
+
+<div class="wrapper" ng-controller="LoginCtrl">
+    <div class="container">
+        <div class="row">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form" }))
+            {
+                @Html.TextBox("Login", null, new { @class = "nameInput", @data_ng_model = "login", @name = "login", @maxlength = "25", @placeholder = "Enter your name", required = "required" });
+                <input type="submit" ng-click="saveLogin()" class="button" value="START">
+            }
+            @Html.ActionLink("VIEW RESULTS", "Results", "Home", new { area = "" }, new { @class = "button mob-button", @style = "text-decoration: none; color: #fff" })
+        </div>
+    </div>
+</div>

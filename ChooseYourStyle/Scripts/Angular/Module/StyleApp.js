@@ -1,0 +1,1 @@
+﻿var styleApp = angular.module("StyleApp", ["ngStorage"]);

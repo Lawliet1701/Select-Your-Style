@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Choose your style";
+}
+
+@section scripts {
+
+    <script src="~/Scripts/Angular/Module/StyleApp.js"></script>
+    <script src="~/Scripts/Angular/Controller/StyleCtrl.js"></script>
+    <script src="~/Scripts/ngStorage.min.js"></script>
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div ng-controller="StyleCtrl">
+
+                <div class="main-headers">
+                    <h2> {{step}} / {{step < 10 ? 10 : step}}</h2>
+                    <h3>{{login}}, CHOOSE THE PICTURE YOU LIKE</h3>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 image-wrapper image-left">
+                        <img class="img-responsive" ng-src="{{image1.path}}" ng-click="getStyle('left'); next()" alt="" />
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 image-wrapper image-right">
+                        <img class="img-responsive" ng-src="{{image2.path}}" ng-click="getStyle('right'); next()" alt="" />
+                    </div>
+
+                </div>
+
+                <div type="text" ng-init="requestUrl = '@Url.Action("Result", "Home")'"></div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
