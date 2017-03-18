@@ -3,13 +3,13 @@
     $scope.style = "";
     $scope.login = $localStorage.login || "USER";
 
-    getHttpImages();
+    loadHttpImages();
 
     $scope.next = function () {
 
         if ($scope.step < 10) {
 
-            getHttpImages();
+            loadHttpImages();
 
         } else {
 
@@ -37,7 +37,7 @@
 
     }
 
-    $scope.getStyle = function (t) {
+    $scope.setStyle = function (t) {
         if (t == "left") {
             $scope.style = $scope.image1.style;
         }
@@ -46,7 +46,7 @@
         }
     }
 
-    function getHttpImages() {
+    function loadHttpImages() {
         $http.get("/Home/GetImages",
         {
             headers: {

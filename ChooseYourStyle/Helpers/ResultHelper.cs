@@ -8,7 +8,7 @@ namespace ChooseYourStyle.Helpers
 {
     public class ResultHelper
     {
-        public void saveResult(int styleId)
+        public void SaveResult(int styleId)
         {
             Result result = new Result()
             {

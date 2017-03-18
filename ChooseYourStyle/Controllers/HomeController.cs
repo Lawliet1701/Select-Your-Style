@@ -58,8 +58,8 @@ namespace ChooseYourStyle.Controllers
                 Summary summary = new Summary()
                 {
                     Login = (string)System.Web.HttpContext.Current.Application["Login"],
-                    MainStyle = imageHelper.getMaxStyle(),
-                    Styles = imageHelper.getAllStyleCounters().Where(p => p.Value > 0)
+                    MainStyle = imageHelper.GetMaxStyle(),
+                    Styles = imageHelper.GetAllStyleCounters().Where(p => p.Value > 0)
                                .OrderByDescending(p => p.Value)
                                .ToDictionary(p => p.Key, p => p.Value),
                 };
@@ -102,7 +102,7 @@ namespace ChooseYourStyle.Controllers
 
             imageHelper.step++;
 
-            List<Image> list = imageHelper.getRandomImages();
+            List<Image> list = imageHelper.GetRandomImages();
 
             return Json(new { imageHelper.step, Images = list }, JsonRequestBehavior.AllowGet);
         }
@@ -116,16 +116,16 @@ namespace ChooseYourStyle.Controllers
             string selectedStyle = this.Request.QueryString["selectedStyle"];
             imageHelper.IncreaseStyleCounter(selectedStyle);
 
-            if (imageHelper.checkAllSelections())       // if true -> go to step 11
+            if (imageHelper.CheckAllSelections())       // if true -> go to step 11
              {
                 imageHelper.step++;
-                List<Image> list = imageHelper.getLastImages();
+                List<Image> list = imageHelper.GetLastImages();
                 return Json(new { imageHelper.step, Images = list }, JsonRequestBehavior.AllowGet);
             }
              else                                       // if false -> save result in DB and go to result page
              {
                  ResultHelper rh = new ResultHelper();
-                 rh.saveResult(imageHelper.getMaxStyleId());
+                 rh.SaveResult(imageHelper.GetMaxStyleId());
 
                  System.Web.HttpContext.Current.Application["Completed"] = true;
 

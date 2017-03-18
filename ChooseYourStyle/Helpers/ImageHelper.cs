@@ -34,7 +34,7 @@ namespace ChooseYourStyle.Helpers
          }
 
         //get 2 images with random styles
-        public List<Image> getRandomImages()
+        public List<Image> GetRandomImages()
         {
             List<Image> list = new List<Image>();
 
@@ -66,7 +66,7 @@ namespace ChooseYourStyle.Helpers
         }
 
         //get 2 images with certain styles on additional step
-        public List<Image> getLastImages()
+        public List<Image> GetLastImages()
         {
             List<Image> list = new List<Image>();
 
@@ -103,7 +103,7 @@ namespace ChooseYourStyle.Helpers
         }
 
         //search max style (or styles)
-        public bool checkAllSelections()
+        public bool CheckAllSelections()
         {
             int max = -1;
             bool equalMaxValue = false;
@@ -127,23 +127,23 @@ namespace ChooseYourStyle.Helpers
             return equalMaxValue;
         }
 
-        public int getMaxStyleId()
+        public int GetMaxStyleId()
         {
-            return getIdStyle(maxStyles[0]);
+            return GetIdStyle(maxStyles[0]);
 
         }
 
-        public string getMaxStyle()
+        public string GetMaxStyle()
         {
             return maxStyles[0];
         }
 
-        public int getIdStyle(string style)
+        public int GetIdStyle(string style)
         {
             return styles.IndexOf(style);
         }
 
-        public Dictionary<string, int> getAllStyleCounters()
+        public Dictionary<string, int> GetAllStyleCounters()
         {
             return counterStyle;
         }
